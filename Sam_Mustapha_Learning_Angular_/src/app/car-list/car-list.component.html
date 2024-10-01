@@ -1,0 +1,4 @@
+<h1>Car List</h1>
+<div *ngFor = "let car of cars; let i = index" >
+<app-car-list-item [carI]="car" [ngClass]="{'even-item': i % 2 ===0,'odd-item': i % 2===1}"></app-car-list-item>
+</div>

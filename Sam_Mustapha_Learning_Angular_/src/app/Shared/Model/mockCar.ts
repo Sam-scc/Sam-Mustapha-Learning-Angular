@@ -1,7 +1,6 @@
-import { Cars } from "./Shared/Model/cars";
+import { Cars } from "./cars";
 
-export class CarListComponent {
-    cars: Cars[]=[
+export const cars: Cars[]=[
     
       {id: 1 , carName:"Audi", price :12660, model:"A4 Premium", isAvailable: true},
       {id: 2 , carName:"Ford", price :26000, model:"Mustang", isAvailable: false},
@@ -13,4 +12,4 @@ export class CarListComponent {
   
     ];
   
-  }
+  

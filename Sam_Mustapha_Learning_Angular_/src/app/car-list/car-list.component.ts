@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Cars } from '../Shared/Model/cars';
 import {NgClass, NgForOf} from '@angular/common';
 import { CarListItemComponent } from '../car-list-item/car-list-item.component';
+import { cars } from '../Shared/Model/mockCar';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { CarListItemComponent } from '../car-list-item/car-list-item.component';
   styleUrl: './car-list.component.scss'
 })
 export class CarListComponent {
+  
 
 
 }

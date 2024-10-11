@@ -1,5 +1,14 @@
-<div>
-    <h1>{{title}}</h1>
-
-    <app-car-list></app-car-list>
-</div>
+<!-- Future Nav bar-->
+<div class="nav-bar">
+    <nav>
+      <a routerLink="/cars" routerLinkActive="active">Car List</a>
+      <a routerLink="/modify-car" routerLinkActive="active">Modify Car</a>
+    </nav>
+  </div>
+  
+  <div class="app-container">
+    <h1>{{ title }}</h1>
+  
+    
+    <router-outlet></router-outlet>
+  </div>

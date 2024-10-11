@@ -3,17 +3,19 @@ import { Cars } from '../Shared/Model/cars';
 import {NgClass, NgForOf} from '@angular/common';
 import { CarListItemComponent } from '../car-list-item/car-list-item.component';
 import { CarService } from '../services/car.service';
-
+import { RouterModule } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common'
 
 @Component({
   selector: 'app-car-list',
   standalone: true,
-  imports: [NgClass, NgForOf, CarListItemComponent],
+  imports: [NgClass, NgForOf, CarListItemComponent,RouterModule,NgOptimizedImage ],
+  
   templateUrl: './car-list.component.html',
   styleUrl: './car-list.component.scss'
 })
 export class CarListComponent implements OnInit{
-  dispaly: String [] = ['id', 'name', 'price', 'model'];
+  dispaly: String [] = ['id', 'name', 'price', 'model','image'];
   cars: Cars[] =[];
   constructor(private carService: CarService){
 

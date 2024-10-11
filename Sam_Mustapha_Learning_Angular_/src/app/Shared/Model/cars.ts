@@ -1,8 +1,10 @@
 export interface Cars {
-    id: number,
+  id: number,
   carName: string,
  price: number,
  model: string,
- isAvailable?: boolean
+ isAvailable?: boolean;
+ image: string;
+
 
 }

@@ -1,4 +1,28 @@
-<h1>Car List</h1>
-<div *ngFor = "let car of cars; let i = index" >
-<app-car-list-item [carI]="car" [ngClass]="{'even-item': i % 2 ===0,'odd-item': i % 2===1}"></app-car-list-item>
+<div class="container">
+  <h2>Car List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Car Name</th>
+        <th>Price</th>
+        <th>Model</th>
+        <th>Available</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars" [routerLink]="['/cars', car.id]">
+        <td>{{ car.id }}</td>
+        <td>{{ car.carName }}</td>
+        <td>{{ car.price }}</td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.isAvailable ? 'Yes' : 'No' }}</td>
+        <td>
+          <img [src]="car.image" alt="{{ car.carName }}" height="100" width="100" />
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

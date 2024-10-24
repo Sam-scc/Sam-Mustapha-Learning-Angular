@@ -22,6 +22,11 @@
           <img [src]="car.image" alt="{{ car.carName }}" height="100" width="100" />
 
         </td>
+        <td [ngSwitch]="course.students">
+                    <div *ngSwitchCase="0">No Students</div>
+                    <div *ngSwitchDefault>
+                      <div *ngFor="let student of course.students">{{ student }}</div>
+                    </div>
       </tr>
     </tbody>
   </table>

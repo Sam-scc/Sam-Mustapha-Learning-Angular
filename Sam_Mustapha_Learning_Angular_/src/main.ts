@@ -8,7 +8,7 @@ import { ModifyCarComponent } from './app/modify-car/modify-car.component';
 import { PageNotFoundComponent } from './app/page-not-found/page-not-found.component';
 
 const routes: Routes=[
-  {path:'', redirectTo: '/students', pathMatch: 'full'},
+  {path:'', redirectTo: '/cars', pathMatch: 'full'},
   {path: 'cars', component: CarListComponent},
   {path: 'cars/:id', component: CarListItemComponent},
   {path:'modify-car', component: ModifyCarComponent},

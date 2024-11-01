@@ -14,7 +14,7 @@ export class CarService {
 
 
   getCars(): Observable<Cars[]>{
-    return of (cars)
+    return of (this.car)
 
   }
 

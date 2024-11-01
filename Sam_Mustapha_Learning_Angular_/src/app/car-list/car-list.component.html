@@ -9,6 +9,8 @@
         <th>Model</th>
         <th>Available</th>
         <th>Image</th>
+        <th>Edit Car</th>
+        <th>Delete Car</th>
       </tr>
     </thead>
     <tbody>
@@ -18,15 +20,11 @@
         <td>{{ car.price }}</td>
         <td>{{ car.model }}</td>
         <td>{{ car.isAvailable ? 'Yes' : 'No' }}</td>
-        <td>
-          <img [src]="car.image" alt="{{ car.carName }}" height="100" width="100" />
+        <td><img [src]="car.image" alt="{{ car.carName }}" height="100" width="100" /></td>
+        <td><button type="button" (click)="onEdit()" class="btn edit-btn">Edit</button></td>
+        <td><button type="button" (click)="onDelete(car)" class="btn delete-btn">Delete</button></td>
 
-        </td>
-        <td [ngSwitch]="course.students">
-                    <div *ngSwitchCase="0">No Students</div>
-                    <div *ngSwitchDefault>
-                      <div *ngFor="let student of course.students">{{ student }}</div>
-                    </div>
+      
       </tr>
     </tbody>
   </table>

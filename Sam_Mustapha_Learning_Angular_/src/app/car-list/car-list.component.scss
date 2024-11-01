@@ -5,3 +5,18 @@
 .odd-item{
     background: gray;
 }
+
+.btn{
+    border: none;
+    border-radius: 15px;
+    padding: 10px 15px;
+
+}
+
+.btn.edit-btn{
+    background-color: green;
+}
+
+.btn.delete-btn{
+    background-color: red;
+}

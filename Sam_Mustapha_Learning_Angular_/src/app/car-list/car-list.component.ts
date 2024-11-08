@@ -38,6 +38,7 @@ export class CarListComponent implements OnInit{
   onEdit(): void{
     this.router.navigate(['/modify-car'])
   }
+
   onDelete(car: Cars): void {
  this.carService.deleteCar(car.id).subscribe(() =>{
   this.cars=this.cars.filter(c => c.id !== car.id)

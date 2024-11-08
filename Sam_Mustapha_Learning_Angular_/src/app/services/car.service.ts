@@ -1,50 +1,58 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { catchError, Observable, of,throwError } from 'rxjs';
 import { Cars } from '../Shared/Model/cars';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { cars } from '../Shared/Model/mockCar';
+
+
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarService {
-  private car: Cars[] = cars;
+  private apiUrl = 'api/cars';  
+  private cars: Cars[] = []
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
+  // Get all cars
+  getCars(): Observable<Cars[]> {
+    return this.http.get<Cars[]>(this.apiUrl).pipe(catchError(this.handleError));
+  }
+
+  addCar(car: Cars): Observable<Cars> {
+    car.id = this.generateNewId();
+    return this.http.post<Cars>(this.apiUrl, car).pipe(catchError(this.handleError))
+  }
 
 
-  getCars(): Observable<Cars[]>{
-    return of (this.car)
+  updateCar(car: Cars): Observable<Cars> {
+    const url = `${this.apiUrl}/${car.id}`;
+    return this.http.put<Cars>(url, car).pipe(catchError(this.handleError))
+  }
+
+
+  deleteCar(carsId: number): Observable<{}> {
+    const url = `${this.apiUrl}/${carsId}`;
+    return this.http.delete(url).pipe(catchError(this.handleError))
 
   }
 
-  addCar(newCar:Cars): Observable<Cars[]>{
-    this.car.push(newCar)
-    return of (this.car);
+  getCarById(carsId: number): Observable<Cars | null> {
+    const url = `${this.apiUrl}/${carsId}`;
+    return this.http.get<Cars>(url).pipe(catchError(this.handleError));
   }
 
-  updateCar(updateCar: Cars): Observable<Cars[]>{
-    const index = this.car.findIndex(cars => cars.id === updateCar.id);
-    if(index !== -1){
-      this.car[index] = updateCar;
-    }
-
-
-    return of (this.car);
+  generateNewId(): number{
+    return this.cars.length > 0 ? Math.max(...this.cars.map(cars =>cars.id)) + 1 : 1;
   }
-
-  deleteCar(carsId: number):  Observable<Cars[]>{
-    this.car = this.car.filter(cars => cars.id !== carsId)
-    return of (this.car)
-  }
-
-  getCarById(carsId: number):  Observable<Cars[]>{
-    const car = this.car.find(cars => cars.id === carsId)
-    return of ();
-  }
-
   
+  private handleError(error: HttpErrorResponse){
+    console.error('API error:' , error);
+    return throwError(() => new Error('Server error, please try again'));
   
-    
-  
+  }
+
 }
+

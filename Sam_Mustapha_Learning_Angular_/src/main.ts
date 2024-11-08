@@ -6,6 +6,10 @@ import { CarListComponent } from './app/car-list/car-list.component';
 import { CarListItemComponent } from './app/car-list-item/car-list-item.component';
 import { ModifyCarComponent } from './app/modify-car/modify-car.component';
 import { PageNotFoundComponent } from './app/page-not-found/page-not-found.component';
+import { provideHttpClient } from '@angular/common/http';
+import { importProvidersFrom } from '@angular/core';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './app/in-memory-data.service';
 
 const routes: Routes=[
   {path:'', redirectTo: '/cars', pathMatch: 'full'},
@@ -16,6 +20,10 @@ const routes: Routes=[
  ];
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)]
- });
+  providers: [
+    provideHttpClient(),
+    provideRouter(routes),
+  importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{delay: 1000}))
+],
+ }).catch((err) => console.error(err));
 

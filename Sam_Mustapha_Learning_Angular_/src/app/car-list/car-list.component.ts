@@ -5,11 +5,12 @@ import { CarListItemComponent } from '../car-list-item/car-list-item.component';
 import { CarService } from '../services/car.service';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CurrencyPipe, UpperCasePipe, LowerCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-car-list',
   standalone: true,
-  imports: [NgClass, NgForOf, CarListItemComponent, RouterLink, FormsModule],
+  imports: [NgClass, NgForOf, CarListItemComponent, RouterLink, FormsModule,CurrencyPipe, UpperCasePipe, LowerCasePipe],
   templateUrl: './car-list.component.html',
   styleUrls: ['./car-list.component.scss']
 })

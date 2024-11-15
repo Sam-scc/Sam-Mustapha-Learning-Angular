@@ -14,9 +14,19 @@ import { InMemoryDataService } from './app/in-memory-data.service';
 const routes: Routes=[
   {path:'', redirectTo: '/cars', pathMatch: 'full'},
   {path: 'cars', component: CarListComponent},
-  {path: 'cars/:id', component: CarListItemComponent},
-  {path:'modify-car', component: ModifyCarComponent},
-  {path: '**', component: PageNotFoundComponent}
+  {path: 'cars/:id',
+    loadComponent:() =>
+    import('./app/car-list/car-list.component').then(m => m.CarListComponent)},
+    {
+    path:'modify-car',
+    loadComponent:() =>
+      import('./app/modify-car/modify-car.component').then(m => m.ModifyCarComponent)},
+    {
+      path: '**',
+      loadComponent: () =>
+        import('./app/page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent)
+    }
+  
  ];
 
 bootstrapApplication(AppComponent, {

@@ -1,22 +1,90 @@
-.even-item{
-    background: lightblue;
+/* Improved styling for even and odd table rows */
+.even-item {
+    background-color: #e6f7ff; /* Soft light blue */
 }
 
-.odd-item{
-    background: gray;
+.odd-item {
+    background-color: #f2f2f2; /* Subtle light gray for contrast */
 }
 
-.btn{
+/* Base styles for buttons */
+.btn {
     border: none;
-    border-radius: 15px;
-    padding: 10px 15px;
-
+    border-radius: 25px; /* Rounded corners for a smoother look */
+    padding: 12px 20px;
+    font-size: 14px; /* Slightly larger text */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    text-transform: capitalize; /* Ensure text is properly capitalized */
 }
 
-.btn.edit-btn{
-    background-color: green;
+/* Edit button style */
+.btn.edit-btn {
+    background-color: #28a745; /* A rich green */
+    color: white;
 }
 
-.btn.delete-btn{
-    background-color: red;
+.btn.edit-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px); /* Subtle hover lift effect */
+}
+
+/* Delete button style */
+.btn.delete-btn {
+    background-color: #dc3545; /* Red button */
+    color: white;
+}
+
+.btn.delete-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+    transform: translateY(-2px); /* Subtle hover lift effect */
+}
+
+/* Responsive button styles */
+@media (max-width: 600px) {
+    .btn {
+        padding: 10px 15px;
+        font-size: 12px; /* Smaller font size on mobile */
+    }
+}
+
+/* Optional: Add hover effects for table rows */
+table tr:hover {
+    background-color: #f0f0f0; /* Light hover effect for rows */
+    cursor: pointer; /* Show pointer cursor for row hover */
+}
+
+/* Optional: Refined table borders */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff; /* Blue header */
+    color: white;
+}
+
+td {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Container styling for better layout */
+.container {
+    max-width: 1200px; /* Ensure content doesn't stretch too wide */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }

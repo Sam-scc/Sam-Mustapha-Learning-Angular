@@ -5,9 +5,9 @@
       <tr>
         <th>ID</th>
         <th>Car Name</th>
-        <th>Price</th>
-        <th>Model</th>
-        <th>Available</th>
+       <!-- <th>Price</th>-->
+        <!--<th>Model</th> -->
+       <!--Available</th>   -->
         <th>Image</th>
         <th>Edit Car</th>
         <th>Delete Car</th>
@@ -16,10 +16,10 @@
     <tbody>
       <tr *ngFor="let car of cars" [routerLink]="['/cars', car.id]">
         <td>{{ car.id }}</td>
-        <td>{{ car.carName | uppercase}}</td>
-        <td>{{ car.price | currency:'CAD' }}</td>
-        <td>{{ car.model | lowercase}}</td>
-        <td>{{ car.isAvailable ? 'Yes' : 'No' }}</td>
+        <td>{{ car| carMiles | uppercase}}</td>
+        <!--<td>{{ car.model | lowercase}}</td>-->
+        <!--<td>{{ car.price | currency:'CAD' }}</td>-->
+        <!--<td>{{ car.isAvailable ? 'Yes' : 'No' }}</td>-->
         <td><img [src]="car.image" alt="{{ car.carName }}" height="100" width="100" /></td>
         <td><button type="button" (click)="onEdit()" class="btn edit-btn">Edit</button></td>
         <td><button type="button" (click)="onDelete(car)" class="btn delete-btn">Delete</button></td>

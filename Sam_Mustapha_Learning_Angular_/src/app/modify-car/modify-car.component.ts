@@ -4,11 +4,12 @@ import { Cars } from '../Shared/Model/cars';
 import { CarService } from '../services/car.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { cars } from '../Shared/Model/mockCar';
+import { FocusDirective } from '../directives/focus.directive';
 
 @Component({
   selector: 'app-modify-car',
   standalone: true,
-  imports: [ReactiveFormsModule,RouterLink],
+  imports: [ReactiveFormsModule,RouterLink,FocusDirective],
   templateUrl: './modify-car.component.html',
   styleUrl: './modify-car.component.scss'
 })

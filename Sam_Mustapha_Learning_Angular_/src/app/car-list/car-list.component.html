@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let car of cars" [routerLink]="['/cars', car.id]"[appHoverHighllight]="'lightblue'">
+      <tr *ngFor="let car of cars" [routerLink]="['/cars', car.id]"[appHoverHighlight]="'lightblue'">
         <td>{{ car.id }}</td>
         <td>{{ car| carMiles | uppercase}}</td>
         <!--<td>{{ car.model | lowercase}}</td>-->

@@ -11,7 +11,7 @@ export class HoverHighlightDirective {
   constructor(private el: ElementRef) {}
 
   @HostListener('mouseenter') onMouseEnter() {
-   this.highlight(this.appHoverHighlight || 'yellow'); 
+   this.highlight(this.appHoverHighlight || 'lightblue'); 
   }
   @HostListener('mouseleave') onMouseLeave() {
    this.highlight('');

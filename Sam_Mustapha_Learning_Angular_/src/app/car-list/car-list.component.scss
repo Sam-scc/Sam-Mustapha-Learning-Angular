@@ -57,7 +57,7 @@ table tr:hover {
     cursor: pointer; /* Show pointer cursor for row hover */
 }
 
-/* Optional: Refined table borders */
+/* Refined table borders */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -87,4 +87,18 @@ td {
     background-color: #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+}
+
+/* Styling for car card */
+.car-card p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+.car-image {
+    margin-top: 1rem;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
 }

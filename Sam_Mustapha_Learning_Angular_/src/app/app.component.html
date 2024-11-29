@@ -1,4 +1,4 @@
-<!-- Future Nav bar-->
+<!-- Future Nav bar
 <div class="nav-bar">
     <nav>
       <a routerLink="/cars" routerLinkActive="active">Car List</a>
@@ -10,5 +10,19 @@
     <h1>{{ title }}</h1>
   
     
+    <router-outlet></router-outlet>
+  </div> -->
+
+  <mat-toolbar color="primary">
+    <span>Sams Car store</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/cars" routerLinkActive="active">Car List </button>
+    <button mat-button routerLink="/modify-car" routerLinkActive="active">Modify Hair</button>
+  </mat-toolbar>
+  
+  <div class="app-container">
+    <h1>{{ title }}</h1>
+  
+    <!--router outlet to display routed components -->
     <router-outlet></router-outlet>
   </div>

@@ -10,6 +10,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './app/in-memory-data.service';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 const routes: Routes=[
   {path:'', redirectTo: '/cars', pathMatch: 'full'},
@@ -33,7 +34,7 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(),
     provideRouter(routes),
-  importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{delay: 1000}))
+  importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{delay: 1000})), provideAnimationsAsync()
 ],
  }).catch((err) => console.error(err));
 

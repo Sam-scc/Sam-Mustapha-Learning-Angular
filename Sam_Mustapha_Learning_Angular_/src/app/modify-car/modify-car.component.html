@@ -1,29 +1,30 @@
-<form [formGroup]="carForm"(ngSubmit)="onSubmit()">
+<form [formGroup]="carForm"(ngSubmit)="onSubmit()" class="mat-form">
 
-    <div class="form-group">
-        <label for="id">ID</label>
-        <input type="number" id="id" formControlName="id"  [appFocus]="'darkgray'"/>
-    </div>
+    <mat-form-field appearance="outline" class="form-field" disabled [appFocus]="'blue'">
+        <mat-label>ID</mat-label>
+        <input matInput type="number" formControlName="id">
+    </mat-form-field>
 
-    <div class="form-group">
-        <label for="carName">Car Name</label>
-        <input type="text" id="firstName" formControlName="carName"  [appFocus]="'darkgray'">
-    </div>
+    <mat-form-field appearance="outline" class="form-field" disabled [appFocus]="'blue'">
+        <mat-label>Car Name</mat-label>
+        <input matInput type="text" formControlName="carName" appAutoFocus>
+    </mat-form-field>
 
-    <div class="form-group">
-        <label for="price">Car Price </label>
-        <input type="number" id="price" formControlName="price"  [appFocus]="'darkgray'">
-    </div>
+    <mat-form-field appearance="outline" class="form-field" disabled [appFocus]="'blue'">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" formControlName="price">
+    </mat-form-field>
 
-    <div class="form-group">
-        <label for="model">Model</label>
-        <input type="text" id="model" formControlName="model"  [appFocus]="'darkgray'">
-    </div>
+    <mat-form-field appearance="outline" class="form-field" disabled [appFocus]="'blue'">
+        <mat-label>Model</mat-label>
+        <input matInput type="text" formControlName="Model">
+    </mat-form-field>
+        <mat-form-field appearance="outline" class="form-field" disabled [appFocus]="'blue'">
+        <mat-label>ID</mat-label>
+        <input matInput type="number" formControlName="id">
+    </mat-form-field>
 
-    <div class="form-group">
-        <label for="isAvailable">Is Available</label>
-        <input type="checkbox" id="isAvailable" formControlName="isAvailable"  >
-    </div>
+    <mat-checkbox formControlName="isAvailable" class="color">Is Available</mat-checkbox>
 
     <div class="form-buttons">
        <button type="button" (click)="onAdd()" class="btn add-btn">Add</button>

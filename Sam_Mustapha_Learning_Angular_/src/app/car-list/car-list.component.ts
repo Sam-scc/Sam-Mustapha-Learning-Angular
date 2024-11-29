@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Cars } from '../Shared/Model/cars';
 import { NgClass, NgForOf } from '@angular/common';
 import { CarListItemComponent } from '../car-list-item/car-list-item.component';
@@ -8,18 +8,45 @@ import { FormsModule } from '@angular/forms';
 import { CurrencyPipe, UpperCasePipe, LowerCasePipe } from '@angular/common';
 import { CarMilesPipe } from '../pipes/car-miles.pipe';
 import { HoverHighlightDirective } from '../directives/hover-highlight.directive';
-
+import {
+  MatCell,
+  MatCellDef, MatColumnDef,
+  MatHeaderCell,
+  MatHeaderCellDef, MatHeaderRow,
+  MatHeaderRowDef, MatRow,
+  MatRowDef,
+  MatTable
+} from "@angular/material/table";
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 @Component({
   selector: 'app-car-list',
   standalone: true,
-  imports: [NgClass, NgForOf, CarListItemComponent, RouterLink, FormsModule,CurrencyPipe, UpperCasePipe, LowerCasePipe,CarMilesPipe,HoverHighlightDirective],
+  imports: [NgClass, NgForOf, CarListItemComponent, RouterLink, FormsModule,CurrencyPipe, UpperCasePipe, LowerCasePipe,CarMilesPipe,
+    HoverHighlightDirective,
+    MatTable,
+    MatHeaderCellDef,
+    MatCellDef,
+    MatRowDef,
+    MatHeaderRowDef,
+    MatHeaderCell,
+    MatColumnDef,
+    MatCell,
+    MatHeaderRow,
+    MatRow,
+    MatPaginator],
   templateUrl: './car-list.component.html',
   styleUrls: ['./car-list.component.scss']
 })
 export class CarListComponent implements OnInit {
+  displayColumns:string[]=['id','carName', 'price','model','isAvailable'];
   cars: Cars[] = [];
+  dataSource: MatTableDataSource<Cars> = new MatTableDataSource(this.cars);
   error: string | null = null;  
   constructor(private carService: CarService, private router: Router) {}
+
+  @ViewChild(MatPaginator) paginator: MatPaginator | null=null;
 
   ngOnInit(): void {
 
@@ -27,6 +54,9 @@ export class CarListComponent implements OnInit {
       next: (data: Cars[]) => {
         this.cars = data; 
         this.error = null; 
+        this.dataSource.data=data;
+      
+    
       },
       error: (err) => {
         this.error = 'Error fetching cars';  
@@ -46,16 +76,9 @@ export class CarListComponent implements OnInit {
     this.router.navigate(['/modify-car']);
   }
 
-  onDelete(car: Cars): void {
-    this.carService.deleteCar(car.id).subscribe({
-      next: () => {
-        this.cars = this.cars.filter((c) => c.id !== car.id);  
-      },
-      error: (err) => {
-        this.error = 'Failed to delete the car';
-        console.error('Error deleting car:', err);
-      }
-    });
-  }
+  onDelete(): void {
+    
+  
+}
 }
 

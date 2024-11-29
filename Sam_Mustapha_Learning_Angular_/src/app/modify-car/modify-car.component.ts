@@ -5,11 +5,16 @@ import { CarService } from '../services/car.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { cars } from '../Shared/Model/mockCar';
 import { FocusDirective } from '../directives/focus.directive';
+import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
+import {MatCheckbox} from "@angular/material/checkbox";
+import {MatTooltip} from "@angular/material/tooltip";
+
 
 @Component({
   selector: 'app-modify-car',
   standalone: true,
-  imports: [ReactiveFormsModule,RouterLink,FocusDirective],
+  imports: [ReactiveFormsModule,RouterLink,FocusDirective, MatFormField, MatInput, MatLabel, MatCheckbox, MatTooltip],
   templateUrl: './modify-car.component.html',
   styleUrl: './modify-car.component.scss'
 })
